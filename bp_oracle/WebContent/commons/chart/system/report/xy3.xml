@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国洗浴服务业基本情况统计表' subCaption='' lineThickness='1' showValues='0' 
+	formatNumberScale='0' anchorRadius='2'   divLineAlpha='20' divLineColor='CC3300' divLineIsDashed='1' 
+	showAlternateHGridColor='1' alternateHGridAlpha='5' alternateHGridColor='CC3300' shadowAlpha='40'
+	labelStep="1" numvdivlines='5' chartRightMargin="35" bgColor='FFFFFF,CC3300' bgAngle='270' bgAlpha='10,10' 
+	 baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <categories >
+        <category label='综合浴场' />
+        <category label='桑拿中心' />
+        <category label='大众浴池' />
+        <category label='足浴保健店' />
+        <category label='SPA会所' />
+        <category label='温泉企业' />
+        
+      </categories>
+      <dataset seriesName='门店个数（个）' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        
+      </dataset>
+      <dataset seriesName='期末从业人员（人）' color='F1683C' anchorBorderColor='F1683C' anchorBgColor='F1683C'>
+        <set value='2042' />
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='1511' />
+        <set value='1904' />
+        
+      </dataset>
+      <dataset seriesName='营业成本（千元）' anchorBorderColor='2AD62A' anchorBgColor='2AD62A'>
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1904' />
+        <set value='1957' />
+        
+      </dataset>
+      <dataset seriesName='资产总计（千元）' anchorBorderColor='DBDC25' anchorBgColor='DBDC25'>
+        <set value='541' />
+        <set value='781' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        
+      </dataset>
+      <dataset seriesName='营业面积（平方米）' anchorBorderColor='DBDC25' anchorBgColor='DBDC25'>
+        <set value='641' />
+        <set value='881' />
+        <set value='950' />
+        <set value='1110' />
+        <set value='1216' />
+        <set value='1334' />
+       
+      </dataset>
+	  <dataset seriesName='应交税金（千元）' anchorBorderColor='DBDC25' anchorBgColor='EFD325'>
+        <set value='341' />
+        <set value='581' />
+        <set value='650' />
+        <set value='410' />
+        <set value='516' />
+        <set value='7' />
+       
+      </dataset>
+	  <dataset seriesName='营业收入（千元）' anchorBorderColor='DBDC25' anchorBgColor='ADD725'>
+        <set value='1641' />
+        <set value='1881' />
+        <set value='150' />
+        <set value='11110' />
+        <set value='11216' />
+        <set value='11334' />
+       
+      </dataset>
+      <styles>
+        <definition>
+          <style name='CaptionFont' type='font' size='12'/>
+          <style name='SUBCAPTIONFont' type='font' size='12'/>
+        </definition>
+        <application>
+          <apply toObject='CAPTION' styles='CaptionFont' />
+          <apply toObject='SUBCAPTION' styles='SUBCAPTIONFont' />
+        </application>
+      </styles>
+    </chart>

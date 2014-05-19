@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="PD_CONTENT">
+
+	<typeAlias alias="pdContent" type="com.ebiz.bp_oracle.domain.PdContent" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertPdContent" />
+		<flushOnExecute statement="updatePdContent" />
+		<flushOnExecute statement="deletePdContent" />
+	</cacheModel>
+
+	<resultMap id="pdContentResultForList" class="pdContent">
+		<result column="ID" property="id" jdbcType="DECIMAL" />
+		<result column="PD_ID" property="pd_id" jdbcType="DECIMAL" />
+		<result column="TYPE" property="type" jdbcType="DECIMAL" />
+		<result column="CONTENT" property="content" jdbcType="CLOB" />
+	</resultMap>
+
+	<resultMap id="pdContentResult" class="pdContent" extends="pdContentResultForList">
+	</resultMap>
+
+	<sql id="sf-pdContent">
+		<isNotEmpty prepend=" and " property="id">a.ID = #id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="pd_id">a.PD_ID = #pd_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="type">a.TYPE = #type:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="content">a.CONTENT = #content:CLOB#</isNotEmpty>
+	</sql>
+
+	<select id="selectPdContent" resultMap="pdContentResult" parameterClass="pdContent" cacheModel="oneDayCache">
+		select * from PD_CONTENT a where 1 = 1
+		<include refid="sf-pdContent" />
+	</select>
+
+	<select id="selectPdContentList" resultMap="pdContentResultForList" parameterClass="pdContent" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		select * from PD_CONTENT a where 1 = 1
+		<include refid="sf-pdContent" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectPdContentCount" resultClass="long" parameterClass="pdContent" cacheModel="oneDayCache">
+		select count(*) from PD_CONTENT a where 1 = 1
+		<include refid="sf-pdContent" />
+	</select>
+
+	<select id="selectPdContentPaginatedList" resultMap="pdContentResult" parameterClass="pdContent" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ from ( ]]>
+		select * from PD_CONTENT a where 1 = 1
+		<include refid="sf-pdContent" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertPdContent" parameterClass="pdContent">
+		<selectKey resultClass="long" keyProperty="id">select SEQ_PD.nextval as id from dual</selectKey>
+		<![CDATA[insert into PD_CONTENT (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">ID</isNotNull>	
+			<isNotNull prepend="," property="pd_id">PD_ID</isNotNull>	
+			<isNotNull prepend="," property="type">TYPE</isNotNull>	
+			<isNotNull prepend="," property="content">CONTENT</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="pd_id">#pd_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="type">#type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="content">#content:CLOB#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updatePdContent" parameterClass="pdContent">
+		update PD_CONTENT
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">ID = #id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="pd_id">PD_ID = #pd_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="type">TYPE = #type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="content">CONTENT = #content:CLOB#</isNotNull>
+		</dynamic>
+		where 1 = 1
+		<isNotEmpty prepend=" and " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" and " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deletePdContent" parameterClass="pdContent">
+		delete from PD_CONTENT where 1 = 1
+		<isNotEmpty prepend=" and " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" and " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

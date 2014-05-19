@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig 
+		PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" 
+		"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings cacheModelsEnabled="false" enhancementEnabled="true" lazyLoadingEnabled="true"
+		useStatementNamespaces="false" statementCachingEnabled="true" classInfoCacheEnabled="true" />
+
+	<typeHandler jdbcType="BLOB" javaType="[B" callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_DATA_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_PROVINCE_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/MOD_POPEDOM_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_POPEDOM_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/ROLE_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/ROLE_USER_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/SYS_MODULE_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/SYS_SETTING_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/USER_INFO_SqlMap.xml" />
+	<!-- 新闻模块  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/NEWS_INFO_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/NEWS_CONTENT_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/NEWS_ATTACHMENT_SqlMap.xml" />
+	<!-- 基础类别属性 add 2012-07-19  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_CLASS_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_CLASS_LINK_ATTRIBUTE_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_ATTRIBUTE_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_ATTRIBUTE_SON_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_PD_CLAZZ_SqlMap.xml" />
+	<!-- 产品库 add 2012-07-19  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/PD_INFO_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/PD_INFO_CUSTOM_FIELD_CONTENT_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/PD_INFO_CUSTOM_ATTR_CONTENT_SqlMap.xml" />
+	
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/PD_IMGS_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/PD_CONTENT_SqlMap.xml" />
+	<!-- 品牌库 add 2012-07-19  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/BASE_BRAND_INFO_SqlMap.xml" />
+	<!-- 帮助中心 add 2012-09-3  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/HELP_CONTENT_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/HELP_INFO_SqlMap.xml" />
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/HELP_MODULE_SqlMap.xml" />
+	<!-- 部门组织架构 add 2012-09-3  -->
+	<sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/DEPT_INFO_SqlMap.xml" />
+	<!-- 投诉咨询add 2013-01-31  -->
+    <sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/QA_INFO_SqlMap.xml" />
+    
+</sqlMapConfig>

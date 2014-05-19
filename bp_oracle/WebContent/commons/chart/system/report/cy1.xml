@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart palette="2" caption="2008年第1季度-2008年第4季度全国典型酒家酒店分经营类型 营业收入 统计图表" subcaption="单位：千元" shownames="1" showvalues="0" 
+	decimals="0" numberPrefix="￥" useRoundEdges="1" legendBorderAlpha="0" baseFontColor="666666" baseFont="宋体" BaseFontSize ="12">
+      <categories>
+        <category label="中式正餐" />
+        <category label="西式正餐" />
+        <category label="火锅" />
+        <category label="中式快餐" />
+        <category label="西式快餐" />
+        <category label="茶馆" />
+        <category label="咖啡店" />
+        <category label="其它" />
+      </categories>
+      <dataset seriesName="2008年1季度" color="AFD8F8" showValues="0">
+        <set value="25601.34" />
+        <set value="20148.82" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+        <set value="45263.37" />
+        <set value="117320.16" />
+        <set value="38105.68" />
+        <set value="45000.65" />
+        <set value="44835.76" />
+        <set value="18722.18" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+      </dataset>
+      <dataset seriesName="2008年2季度" color="F6BD0F" showValues="0">
+        <set value="57401.85" />
+        <set value="41941.19" />
+        <set value="25601.34" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+        <set value="45263.37" />
+        <set value="20148.82" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+        <set value="45263.37" />
+        <set value="117320.16" />
+        <set value="114845.27" />
+      </dataset>
+      <dataset seriesName="2008年3季度" showValues="0">
+        <set value="25601.34" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+        <set value="45263.37" />
+        <set value="20148.82" />
+        <set value="17372.76" />
+        <set value="35407.15" />
+        <set value="38105.68" />
+        <set value="45000.65" />
+        <set value="44835.76" />
+        <set value="18722.18" />
+        <set value="77557.31" />
+        <set value="92633.68" />
+      </dataset>      
+      <dataset seriesName="2008年4季度" showValues="0">
+        <set value="26601.34" />
+        <set value="18372.76" />
+        <set value="36407.15" />
+        <set value="39105.68" />
+        <set value="46263.37" />
+        <set value="19148.82" />
+        <set value="18372.76" />
+        <set value="34407.15" />
+        <set value="37105.68" />
+        <set value="44000.65" />
+        <set value="45835.76" />
+        <set value="19722.18" />
+        <set value="78557.31" />
+        <set value="93633.68" />
+      </dataset>
+    </chart>

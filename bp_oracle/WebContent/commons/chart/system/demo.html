@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>商贸服务行业统计信息管理系统</title>
+<link href="../styles/oa.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../scripts/oa.js"></script>
+<script type="text/javascript" src="../scripts/cookie.js"></script>
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/menuControl.js"></script>
+</head>
+<body>
+
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+      <td id="oa_right">
+     
+      <div id="count0">
+        <table width="100%" border="0" cellpadding="5" cellspacing="0" class="graphcount">
+          <tr>
+            <th align="center"><span id="menuclass0"><a href="#" class="current1" onclick='setTabclass(0,0)'>图表1</a> | <a href="#" onclick='setTabclass(0,1)'>图表2</a> | <a href="#" onclick='setTabclass(0,2)'>图表3</a> | <a href="#" onclick='setTabclass(0,3)'>图表4</a> | <a href="#" onclick='setTabclass(0,4)'>图表5</a> | <a href="#" onclick='setTabclass(0,5)'>图表6</a> | <a href="#" onclick='setTabclass(0,6)'>图表7</a> | <a href="#" onclick='setTabclass(0,7)'>图表8</a></span></th>
+          </tr>
+          <tr>
+            <td><div id="countclass0">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/Column3D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz1.xml");		   
+                   chart.render("chartdiv");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv2"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/MSColumn2D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz2.xml");		   
+                   chart.render("chartdiv2");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv3"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/MSColumn3D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz3.xml");		   
+                   chart.render("chartdiv3");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv7"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/StackedColumn2D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz7.xml");		   
+                   chart.render("chartdiv7");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv6"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/Doughnut2D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz6.xml");		   
+                   chart.render("chartdiv6");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv8"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/Pie3D.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz8.xml");		   
+                   chart.render("chartdiv8");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv5"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/Line.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz5.xml");		   
+                   chart.render("chartdiv5");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+                <table style="display:none;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><div id="chartdiv4"></div>
+                      <script type="text/javascript">
+                   var chart = new FusionCharts("../Charts/MSLine.swf", "ChartId", "760", "400", "0", "0");
+                   chart.setDataURL("report/sz4.xml");		   
+                   chart.render("chartdiv4");
+                </script>
+                    </td>
+                  </tr>
+                </table>
+              </div></td>
+          </tr>
+        </table>
+      </div>
+      <div id="count1" style="display:none;">
+        <table width="100%" border="0" cellpadding="5" cellspacing="0" class="graphcount">
+          <tr>
+            <td align="center"><span id="menuclass1"><a href="#" class="current1" onclick='setTabclass(1,0)'>图表1</a></span></td>
+          </tr>
+          <tr>
+            <td><div id="countclass1">
+                <table style="display:none;" width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><div id="chartdiv9"></div>
+                      <script type="text/javascript">
+		   var chart1 = new FusionCharts("../Charts/Doughnut2D.swf", "ChartId", "760", "400", "0", "0");
+		   chart1.setDataURL("report/sz9.xml");		   
+		   chart1.render("chartdiv9");
+		</script></td>
+                  </tr>
+                </table>
+              </div></td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>

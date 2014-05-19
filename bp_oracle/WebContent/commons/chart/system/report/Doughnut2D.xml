@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart palette='2' caption='2008年全国重点生产资料流通企业（单位）分企业类型 商品销售总额 统计情况' subcaption="单位：万元" baseFont='宋体' BaseFontSize ='12'>
+      <set value='250' label='国有企业' isSliced='1' />
+      <set value='170' label='集体联营' />
+      <set value='230' label='其他有限责任公司' />
+      <set value='650' label='港澳台商投资企业' isSliced='1' />
+      <set value='220' label='国有与集体联营' />
+      <set value='220' label='集体企业' />
+      <set value='220' label='股份有限公司' />
+      <set value='220' label='外商投资企业' />
+      <set value='220' label='股份合作' />
+      <set value='220' label='其他联营' />
+      <set value='220' label='私营企业' />
+      <set value='220' label='国有联营' />
+      <set value='220' label='国有独资公司' />
+      <set value='220' label='其他内资企业' />
+    </chart>

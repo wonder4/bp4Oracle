@@ -1,0 +1,31 @@
+@charset "gb2312";
+/*common*/
+body,div,ul,ol,li,form,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+body{font:normal 12px "宋体, Arial, Helvetica, sans-serif";color:#333;}
+h1,h2{font:bold 14px "宋体";}
+h3,h4,{font:bold 12px "宋体";}
+body {background:#d9d9d9;}
+input,textarea,select,option{font:normal 12px "宋体";}
+a{color:#333;text-decoration:none;cursor:pointer;}
+a:link,a:visited{color:#333;text-decoration:none;}
+a:hover{color:#cf0000;text-decoration:underline;}
+a:active{color:#333;text-decoration:none}
+img,a img {vertical-align:middle;border:0;}
+ul,ol,li{list-style:none; line-height:24px;}
+.clear{clear:both;height:0;overflow:hidden;}
+.alignl{text-align:left;}
+.alignr{text-align:right;}
+.alignm{text-align:center;}
+.l{float:left;}
+.r{float:right;}
+.bold { font-weight:bold;}
+h6{ height:20px; font-weight:normal; padding-top:8px;}
+h5{ height:24px; font-weight:normal;  text-align:left; color:#c3000c; font-size:13px; font-weight:bold;}
+
+/* a */
+li a:link,li a:visited,li a:active{color:#333;}
+li a:hover {color:#cf0000;text-decoration:underline;}
+h3 a:link,h3 a:visited {color:#333;}
+h3 a:hover {color:#cf0000;text-decoration:underline;}
+
+

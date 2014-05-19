@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<urlrewrite>
+	<!-- index.do -->
+	<rule>
+		<from>^/index.shtml$</from>
+		<to>/index.do</to>
+	</rule>
+	
+	<outbound-rule>
+		<from>/index.do$</from>
+		<to>/index.shtml</to>
+	</outbound-rule>
+	
+	<!-- 新闻列表1 -->
+	<rule>
+		<from>^/newslist-([0-9]+).shtml$</from>
+		<to>/IndexNewsInfo.do?mod_id=$1</to>
+	</rule>
+	<outbound-rule>
+		<from>/IndexNewsInfo.do\?mod_id=([0-9]+)$</from>
+		<to>/newslist-$1.shtml</to>
+	</outbound-rule>
+	
+	<!-- 新闻列表2 
+	<outbound-rule>
+		<from>/IndexNewsInfo.do\?method=list&amp;mod_code=([0-9]+)&amp;par_code=([0-9]+)$</from>
+		<to>/newsInfo-list-$1-$2.shtml</to>
+	</outbound-rule>
+	<rule>
+		<from>^/newsInfo-list-([0-9]+)-([0-9]+).shtml$</from>
+		<to>/IndexNewsInfo.do?mod_code=$1&amp;par_code=$2</to>
+	</rule>
+	-->
+	
+	<!-- 新闻详细信息 -->
+	<rule>
+		<from>^/news-([a-zA-Z0-9\-]{36}).shtml$</from>
+		<to>/IndexNewsInfo.do?method=view&amp;uuid=$1</to>
+	</rule>
+	<outbound-rule>
+		<from>/IndexNewsInfo.do\?method=view&amp;uuid=([a-zA-Z0-9\-]{36})$</from>
+		<to>/news-$1.shtml</to>
+	</outbound-rule>
+	
+	<!-- 新闻分页 BEGIN -->
+ 	<outbound-rule>
+		<from>/IndexNewsInfo.do(.*)$</from>
+		<to>/newslist.shtml$1</to>
+	</outbound-rule>
+	<rule>
+		<from>^/newslist.shtml(.*)$</from>
+		<to>/IndexNewsInfo.do$1</to>
+	</rule>
+	<!-- 新闻分页 END -->
+ 
+	<!-- 登陆 BEGIN -->
+	 	<outbound-rule>
+		<from>/manager/login.do(.*)$</from>
+		<to>/manager/login.shtml$1</to>
+	</outbound-rule>
+	<rule>
+		<from>^/manager/login.shtml(.*)$</from>
+		<to>/manager/login.do$1</to>
+	</rule>
+	<!-- 登陆 END -->
+	
+	<!-- 框架 BEGIN -->
+	 	<outbound-rule>
+		<from>/manager/admin/Frames.do$</from>
+		<to>/manager/admin/frames.shtml</to>
+	</outbound-rule>
+	<rule>
+		<from>^/manager/admin/frames.shtml$</from>
+		<to>/manager/admin/Frames.do</to>
+	</rule>
+	<!-- 框架 END -->
+</urlrewrite>

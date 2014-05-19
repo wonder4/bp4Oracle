@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="autoRunService" class="com.ebiz.bp_oracle.service.impl.AutoRunServiceImpl" />
+
+	<!-- Quartz Detail -->
+	<bean id="archiveOecDayReportDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="autoRunService" />
+		<property name="targetMethod" value="archiveOecDayReport" />
+	</bean>
+
+	<!-- Quartz Trigger -->
+	<bean id="archiveOecDayReportCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="archiveOecDayReportDetail" />
+		<property name="cronExpression" value="0 1 4 ? * 7" />
+		<!-- <property name="cronExpression" value="0 52 11 * * ?"  /> -->
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="archiveOecDayReportCronTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>

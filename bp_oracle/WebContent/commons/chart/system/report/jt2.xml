@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart palette='2' caption='2008-2010年全国典型商业企业集团、购物中心、连锁总部情况分行业类型 营业收入 统计图表况' subcaption="单位：万元" shownames='1' showvalues='0' decimals='0' numberPrefix='￥' useRoundEdges='1' legendBorderAlpha='0' baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <categories>
+				<category label='批发业' />
+				<category label='零售业' />
+				<category label='餐饮业' />
+				<category label='住宿业' isSliced='1' />
+				<category label='娱乐业' />
+				<category label='运输业' />
+				<category label='仓储业' />
+				<category label='金融保险业' />
+				<category label='房地产业' />
+				<category label='其他' />
+      </categories>
+      <dataset seriesName='2008' color='AFD8F8' showValues='0'>
+        <set value='25601.34' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='117320.16' />
+        <set value='38105.68' />
+        <set value='45000.65' />
+        <set value='44835.76' />
+        <set value='18722.18' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+      </dataset>
+      <dataset seriesName='2009' color='F6BD0F' showValues='0'>
+        <set value='57401.85' />
+        <set value='41941.19' />
+        <set value='25601.34' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='117320.16' />
+        <set value='114845.27' />
+      </dataset>
+      <dataset seriesName='2010' showValues='0'>
+        <set value='25601.34' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45000.65' />
+        <set value='44835.76' />
+        <set value='18722.18' />
+        <set value='77557.31' />
+        <set value='92633.68' />
+      </dataset>
+    </chart>

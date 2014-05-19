@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国分行业营业面积同比排名'  xAxisName='行业类型' subcaption='单位：%' yAxisName='同比' 
+	 baseFontColor='666666' showValues='0' decimals='0' formatNumberScale='0' baseFont='宋体' BaseFontSize ='12'>
+      <set value='110' label='会展服务业' />
+     <set value='120' label='生产资料流通业'  />
+      
+	  <set value='150' label='零售业' />
+      <set value='160' label='餐饮业' />
+      <set value='170' label='洗浴服务业' />
+      <set value='180' label='理发及美容保健服务业' />
+  
+     
+    </chart>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="USER_INFO">
+
+	<typeAlias alias="userInfo" type="com.ebiz.bp_oracle.domain.UserInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertUserInfo" />
+		<flushOnExecute statement="updateUserInfo" />
+		<flushOnExecute statement="deleteUserInfo" />
+	</cacheModel>
+
+	<resultMap id="userInfoResultForList" class="userInfo">
+		<result column="ID" property="id" jdbcType="DECIMAL" />
+		<result column="USER_NAME" property="user_name" jdbcType="VARCHAR" />
+		<result column="REAL_NAME" property="real_name" jdbcType="VARCHAR" />
+		<result column="USER_TYPE" property="user_type" jdbcType="DECIMAL" />
+		<result column="DEPT_ID" property="dept_id" jdbcType="DECIMAL" />
+		<result column="DEPT_NAME" property="dept_name" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="DECIMAL" />
+		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+		<result column="POSITIONS" property="positions" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="OFFICE_TEL" property="office_tel" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="LOGIN_COUNT" property="login_count" jdbcType="DECIMAL" />
+		<result column="LAST_LOGIN_IP" property="last_login_ip" jdbcType="VARCHAR" />
+		<result column="LAST_LOGIN_TIME" property="last_login_time" jdbcType="DATE" />
+		<result column="ORDER_VALUE" property="order_value" jdbcType="DECIMAL" />
+		<result column="IS_LOCK" property="is_lock" jdbcType="DECIMAL" />
+		<result column="IS_DEL" property="is_del" jdbcType="DECIMAL" />
+		<result column="ADD_DATE" property="add_date" jdbcType="DATETIME" />
+		<result column="ADD_USER_ID" property="add_user_id" jdbcType="DECIMAL" />
+		<result column="UPDATE_DATE" property="update_date" jdbcType="DATETIME" />
+		<result column="UPDATE_USER_ID" property="update_user_id" jdbcType="DECIMAL" />
+		<result column="DEL_DATE" property="del_date" jdbcType="DATETIME" />
+		<result column="DEL_USER_ID" property="del_user_id" jdbcType="DECIMAL" />
+	</resultMap>
+
+	<resultMap id="userInfoResult" class="userInfo" extends="userInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-userInfo">
+		<isNotEmpty prepend=" and " property="id">a.ID = #id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="user_name">a.USER_NAME = #user_name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="real_name">a.REAL_NAME = #real_name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="user_type">a.USER_TYPE = #user_type:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_id">a.DEPT_ID = #dept_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_name">a.DEPT_NAME = #dept_name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="password">a.PASSWORD = #password:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="sex">a.SEX = #sex:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="birthday">a.BIRTHDAY = #birthday:DATE#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="positions">a.POSITIONS = #positions:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="mobile">a.MOBILE = #mobile:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="office_tel">a.OFFICE_TEL = #office_tel:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="email">a.EMAIL = #email:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="login_count">a.LOGIN_COUNT = #login_count:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="last_login_ip">a.LAST_LOGIN_IP = #last_login_ip:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="last_login_time">a.LAST_LOGIN_TIME = #last_login_time:DATE#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="order_value">a.ORDER_VALUE = #order_value:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_lock">a.IS_LOCK = #is_lock:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_del">a.IS_DEL = #is_del:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="add_date">a.ADD_DATE = #add_date:DATE#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="add_user_id">a.ADD_USER_ID = #add_user_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="update_date">a.UPDATE_DATE = #update_date:DATE#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="update_user_id">a.UPDATE_USER_ID = #update_user_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="del_date">a.DEL_DATE = #del_date:DATE#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="del_user_id">a.DEL_USER_ID = #del_user_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="map.user_name_like">a.USER_NAME like '%' || #map.user_name_like# || '%'</isNotEmpty>
+		<isNotEmpty prepend=" and " property="map.not_in_id">a.id not in($map.not_in_id$)</isNotEmpty>
+	</sql>
+
+	<select id="selectUserInfo" resultMap="userInfoResult" parameterClass="userInfo" cacheModel="oneDayCache">
+		select * from USER_INFO a where 1 = 1
+		<include refid="sf-userInfo" />
+	</select>
+
+	<select id="selectUserInfoList" resultMap="userInfoResultForList" parameterClass="userInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		select * from USER_INFO a where 1 = 1
+		<include refid="sf-userInfo" />
+		order by ORDER_VALUE desc, ID desc
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectUserInfoCount" resultClass="long" parameterClass="userInfo" cacheModel="oneDayCache">
+		select count(*) from USER_INFO a where 1 = 1
+		<include refid="sf-userInfo" />
+	</select>
+
+	<select id="selectUserInfoPaginatedList" resultMap="userInfoResult" parameterClass="userInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ from ( ]]>
+		select * from USER_INFO a where 1 = 1
+		<include refid="sf-userInfo" />
+		order by ORDER_VALUE desc, ID desc
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertUserInfo" parameterClass="userInfo">
+		<selectKey resultClass="long" keyProperty="id">select SEQ_USER_ROLE_POPEDOM.nextval as id from dual</selectKey>
+		<![CDATA[insert into USER_INFO (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">ID</isNotNull>	
+			<isNotNull prepend="," property="user_name">USER_NAME</isNotNull>	
+			<isNotNull prepend="," property="real_name">REAL_NAME</isNotNull>	
+			<isNotNull prepend="," property="user_type">USER_TYPE</isNotNull>	
+			<isNotNull prepend="," property="dept_id">DEPT_ID</isNotNull>	
+			<isNotNull prepend="," property="dept_name">DEPT_NAME</isNotNull>	
+			<isNotNull prepend="," property="password">PASSWORD</isNotNull>	
+			<isNotNull prepend="," property="sex">SEX</isNotNull>	
+			<isNotNull prepend="," property="birthday">BIRTHDAY</isNotNull>	
+			<isNotNull prepend="," property="positions">POSITIONS</isNotNull>	
+			<isNotNull prepend="," property="mobile">MOBILE</isNotNull>	
+			<isNotNull prepend="," property="office_tel">OFFICE_TEL</isNotNull>	
+			<isNotNull prepend="," property="email">EMAIL</isNotNull>	
+			<isNotNull prepend="," property="login_count">LOGIN_COUNT</isNotNull>	
+			<isNotNull prepend="," property="last_login_ip">LAST_LOGIN_IP</isNotNull>	
+			<isNotNull prepend="," property="last_login_time">LAST_LOGIN_TIME</isNotNull>	
+			<isNotNull prepend="," property="order_value">ORDER_VALUE</isNotNull>	
+			<isNotNull prepend="," property="is_lock">IS_LOCK</isNotNull>	
+			<isNotNull prepend="," property="is_del">IS_DEL</isNotNull>	
+			<isNotNull prepend="," property="add_date">ADD_DATE</isNotNull>	
+			<isNotNull prepend="," property="add_user_id">ADD_USER_ID</isNotNull>	
+			<isNotNull prepend="," property="update_date">UPDATE_DATE</isNotNull>	
+			<isNotNull prepend="," property="update_user_id">UPDATE_USER_ID</isNotNull>	
+			<isNotNull prepend="," property="del_date">DEL_DATE</isNotNull>	
+			<isNotNull prepend="," property="del_user_id">DEL_USER_ID</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="user_name">#user_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="real_name">#real_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="user_type">#user_type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_id">#dept_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_name">#dept_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="password">#password:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="sex">#sex:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="birthday">#birthday:DATE#</isNotNull>
+			<isNotNull prepend="," property="positions">#positions:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="mobile">#mobile:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="office_tel">#office_tel:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="email">#email:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="login_count">#login_count:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="last_login_ip">#last_login_ip:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="last_login_time">#last_login_time:DATE#</isNotNull>
+			<isNotNull prepend="," property="order_value">#order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_lock">#is_lock:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_del">#is_del:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="add_date">sysdate</isNotNull>
+			<isNotNull prepend="," property="add_user_id">#add_user_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="update_date">#update_date:DATETIME#</isNotNull>
+			<isNotNull prepend="," property="update_user_id">#update_user_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="del_date">#del_date:DATETIME#</isNotNull>
+			<isNotNull prepend="," property="del_user_id">#del_user_id:DECIMAL#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateUserInfo" parameterClass="userInfo">
+		update USER_INFO
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">ID = #id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="user_name">USER_NAME = #user_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="real_name">REAL_NAME = #real_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="user_type">USER_TYPE = #user_type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_id">DEPT_ID = #dept_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_name">DEPT_NAME = #dept_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="password">PASSWORD = #password:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="sex">SEX = #sex:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="birthday">BIRTHDAY = #birthday:DATE#</isNotNull>
+			<isNotNull prepend="," property="positions">POSITIONS = #positions:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="mobile">MOBILE = #mobile:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="office_tel">OFFICE_TEL = #office_tel:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="email">EMAIL = #email:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="login_count">LOGIN_COUNT = #login_count:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="last_login_ip">LAST_LOGIN_IP = #last_login_ip:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="last_login_time">LAST_LOGIN_TIME = #last_login_time:DATE#</isNotNull>
+			<isNotNull prepend="," property="order_value">ORDER_VALUE = #order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_lock">IS_LOCK = #is_lock:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_del">IS_DEL = #is_del:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="update_date">UPDATE_DATE = sysdate</isNotNull>
+			<isNotNull prepend="," property="update_user_id">UPDATE_USER_ID = #update_user_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="del_date">DEL_DATE = sysdate</isNotNull>
+			<isNotNull prepend="," property="del_user_id">DEL_USER_ID = #del_user_id:DECIMAL#</isNotNull>
+		</dynamic>
+		where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteUserInfo" parameterClass="userInfo">
+		delete from USER_INFO where
+		<isNotEmpty prepend=" " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

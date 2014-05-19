@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="PD_INFO_CUSTOM_FIELD_CONTENT">
+
+	<typeAlias alias="pdInfoCustomFieldContent" type="com.ebiz.bp_oracle.domain.PdInfoCustomFieldContent" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertPdInfoCustomFieldContent" />
+		<flushOnExecute statement="updatePdInfoCustomFieldContent" />
+		<flushOnExecute statement="deletePdInfoCustomFieldContent" />
+	</cacheModel>
+
+	<resultMap id="pdInfoCustomFieldContentResultForList" class="pdInfoCustomFieldContent">
+		<result column="ID" property="id" jdbcType="DECIMAL" />
+		<result column="PD_ID" property="pd_id" jdbcType="DECIMAL" />
+		<result column="CUSTOM_FIELD_ID" property="custom_field_id" jdbcType="DECIMAL" />
+		<result column="TYPE" property="type" jdbcType="DECIMAL" />
+		<result column="CUSTOM_FIELD_NAME" property="custom_field_name" jdbcType="VARCHAR" />
+		<result column="ORDER_VALUE" property="order_value" jdbcType="DECIMAL" />
+		<result column="IS_REQUIRED" property="is_required" jdbcType="DECIMAL" />
+		<result column="IS_SHOW" property="is_show" jdbcType="DECIMAL" />
+		<result column="CUSTOM_FIELD_CONTENT" property="custom_field_content" jdbcType="CLOB" />
+	</resultMap>
+
+	<resultMap id="pdInfoCustomFieldContentResult" class="pdInfoCustomFieldContent" extends="pdInfoCustomFieldContentResultForList">
+	</resultMap>
+
+	<sql id="sf-pdInfoCustomFieldContent">
+		<isNotEmpty prepend=" and " property="id">a.ID = #id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="pd_id">a.PD_ID = #pd_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="custom_field_id">a.CUSTOM_FIELD_ID = #custom_field_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="type">a.TYPE = #type:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="custom_field_name">a.CUSTOM_FIELD_NAME = #custom_field_name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="order_value">a.ORDER_VALUE = #order_value:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_required">a.IS_REQUIRED = #is_required:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_show">a.IS_SHOW = #is_show:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="custom_field_content">a.CUSTOM_FIELD_CONTENT = #custom_field_content:CLOB#</isNotEmpty>
+	</sql>
+
+	<select id="selectPdInfoCustomFieldContent" resultMap="pdInfoCustomFieldContentResult" parameterClass="pdInfoCustomFieldContent" cacheModel="oneDayCache">
+		select * from PD_INFO_CUSTOM_FIELD_CONTENT a where 1 = 1
+		<include refid="sf-pdInfoCustomFieldContent" />
+	</select>
+
+	<select id="selectPdInfoCustomFieldContentList" resultMap="pdInfoCustomFieldContentResultForList" parameterClass="pdInfoCustomFieldContent" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		select * from PD_INFO_CUSTOM_FIELD_CONTENT a where 1 = 1
+		<include refid="sf-pdInfoCustomFieldContent" />
+		<!-- order by ID asc -->
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectPdInfoCustomFieldContentCount" resultClass="long" parameterClass="pdInfoCustomFieldContent" cacheModel="oneDayCache">
+		select count(*) from PD_INFO_CUSTOM_FIELD_CONTENT a where 1 = 1
+		<include refid="sf-pdInfoCustomFieldContent" />
+	</select>
+
+	<select id="selectPdInfoCustomFieldContentPaginatedList" resultMap="pdInfoCustomFieldContentResult" parameterClass="pdInfoCustomFieldContent" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ from ( ]]>
+		select * from PD_INFO_CUSTOM_FIELD_CONTENT a where 1 = 1
+		<include refid="sf-pdInfoCustomFieldContent" />
+		<!-- order by ID asc -->
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<insert id="insertPdInfoCustomFieldContent" parameterClass="pdInfoCustomFieldContent">
+		<selectKey resultClass="long" keyProperty="id">select SEQ_PD.nextval as id from dual</selectKey>
+		<![CDATA[insert into PD_INFO_CUSTOM_FIELD_CONTENT (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">ID</isNotNull>	
+			<isNotNull prepend="," property="pd_id">PD_ID</isNotNull>	
+			<isNotNull prepend="," property="custom_field_id">CUSTOM_FIELD_ID</isNotNull>	
+			<isNotNull prepend="," property="type">TYPE</isNotNull>	
+			<isNotNull prepend="," property="custom_field_name">CUSTOM_FIELD_NAME</isNotNull>	
+			<isNotNull prepend="," property="order_value">ORDER_VALUE</isNotNull>	
+			<isNotNull prepend="," property="is_required">IS_REQUIRED</isNotNull>	
+			<isNotNull prepend="," property="is_show">IS_SHOW</isNotNull>
+			<isNotNull prepend="," property="custom_field_content">CUSTOM_FIELD_CONTENT</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="pd_id">#pd_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_id">#custom_field_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="type">#type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_name">#custom_field_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="order_value">#order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_required">#is_required:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_show">#is_show:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_content">#custom_field_content:CLOB#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updatePdInfoCustomFieldContent" parameterClass="pdInfoCustomFieldContent">
+		update PD_INFO_CUSTOM_FIELD_CONTENT
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">ID = #id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="pd_id">PD_ID = #pd_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_id">CUSTOM_FIELD_ID = #custom_field_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="type">TYPE = #type:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_name">CUSTOM_FIELD_NAME = #custom_field_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="order_value">ORDER_VALUE = #order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_required">IS_REQUIRED = #is_required:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_show">IS_SHOW = #is_show:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="custom_field_content">CUSTOM_FIELD_CONTENT = #custom_field_content:CLOB#</isNotNull>
+		</dynamic>
+		where 1 = 1
+		<isNotEmpty prepend=" and " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" and " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deletePdInfoCustomFieldContent" parameterClass="pdInfoCustomFieldContent">
+		delete from PD_INFO_CUSTOM_FIELD_CONTENT where 1 = 1
+		<isNotEmpty prepend=" and " property="pd_id">PD_ID = #pd_id#</isNotEmpty>
+		<isEmpty prepend=" and " property="pd_id">
+			<isNotEmpty prepend=" " property="map.pks">
+				PD_ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

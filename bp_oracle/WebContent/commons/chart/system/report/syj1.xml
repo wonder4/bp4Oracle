@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国商业街服务网点分网点设施综合统计图表' lineThickness='1' showValues='0' formatNumberScale='0' anchorRadius='2'   divLineAlpha='20' divLineColor='CC3300' divLineIsDashed='1' showAlternateHGridColor='1' alternateHGridAlpha='5' alternateHGridColor='CC3300' shadowAlpha='40' labelStep="1" numvdivlines='5' chartRightMargin="35" bgColor='FFFFFF,CC3300' bgAngle='270' bgAlpha='10,10' baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <categories >
+				<category label='零售业' isSliced='1' />
+				<category label='餐饮业' />
+				<category label='住宿业' />
+				<category label='居民服务业' />
+				<category label='休闲娱乐业' />
+      </categories>
+      <dataset seriesName='门店数(个' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1210' />
+        <set value='1054' />
+        <set value='802' />
+        <set value='1511' />
+        <set value='1904' />
+        <set value='1957' />
+        <set value='1296' />
+      </dataset>
+      <dataset seriesName='商品销售额（营业额）（万元）' color='F1683C' anchorBorderColor='F1683C' anchorBgColor='F1683C'>
+        <set value='2042' />
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='1511' />
+        <set value='1904' />
+        <set value='1957' />
+        <set value='1296' />
+        <set value='3210' />
+        <set value='2994' />
+        <set value='3115' />
+        <set value='2844' />
+        <set value='3576' />
+        <set value='1862' />
+      </dataset>
+      <dataset seriesName='期末从业人员（人）' anchorBorderColor='2AD62A' anchorBgColor='2AD62A'>
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1904' />
+        <set value='1957' />
+        <set value='1296' />
+        <set value='3210' />
+        <set value='2994' />
+        <set value='3115' />
+        <set value='2844' />
+        <set value='1210' />
+        <set value='1054' />
+        <set value='802' />
+      </dataset>
+      <dataset seriesName='营业面积（平方米）' anchorBorderColor='DBDC25' anchorBgColor='DBDC25'>
+        <set value='541' />
+        <set value='781' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1210' />
+        <set value='1054' />
+        <set value='802' />
+        <set value='920' />
+        <set value='754' />
+        <set value='840' />
+        <set value='893' />
+        <set value='451' />
+      </dataset>
+      <styles>
+        <definition>
+          <style name='CaptionFont' type='font' size='12'/>
+          <style name='SUBCAPTIONFont' type='font' size='12'/>
+        </definition>
+        <application>
+          <apply toObject='CAPTION' styles='CaptionFont' />
+          <apply toObject='SUBCAPTION' styles='SUBCAPTIONFont' />
+        </application>
+      </styles>
+    </chart>

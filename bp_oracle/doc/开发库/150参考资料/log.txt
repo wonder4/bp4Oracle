@@ -1,0 +1,9 @@
+203.12
+	1、删除news_info_custom_field、news_info_custom_fields_son、news_info_custom_fields三张表以及对应的XML、后台代码、前台页面及各模块中嵌入的代码；
+	
+
+2013.8.14
+	1、新建article、help、pd与base目录，将基础代码与其他类的代码分开；
+	2、去除代码中不必要的注释；
+	3、将doc目录根据自己的习惯进行整理；
+	4、将通用的包含页面进行重命名；

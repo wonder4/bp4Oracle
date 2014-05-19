@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart palette='2' caption='2008-2010年全国重点生产资料流通企业（单位）分企业类型 商品销售总额 统计情况' subcaption="单位：万元" shownames='1' showvalues='0' 
+	decimals='0' numberPrefix='$' useRoundEdges='1' legendBorderAlpha='0' baseFont='宋体' BaseFontSize ='12'>
+      <categories>
+        <category label='国有企业' />
+        <category label='集体联营' />
+        <category label='其他有限责任公司' />
+        <category label='港澳台商投资企业' />
+        <category label='集体企业' />
+        <category label='国有与集体联营' />
+        <category label='股份有限公司' />
+        <category label='外商投资企业' />
+        <category label='股份合作' />
+        <category label='其他联营' />
+        <category label='私营企业' />
+        <category label='国有联营' />
+        <category label='国有独资公司' />
+        <category label='其他内资企业' />
+      </categories>
+      <dataset seriesName='2008' color='AFD8F8' showValues='0'>
+        <set value='25601.34' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='117320.16' />
+        <set value='38105.68' />
+        <set value='45000.65' />
+        <set value='44835.76' />
+        <set value='18722.18' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+      </dataset>
+      <dataset seriesName='2009' color='F6BD0F' showValues='0'>
+        <set value='57401.85' />
+        <set value='41941.19' />
+        <set value='25601.34' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='117320.16' />
+        <set value='114845.27' />
+      </dataset>
+      <dataset seriesName='2010' color='8BBA00' showValues='0'>
+        <set value='25601.34' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45263.37' />
+        <set value='20148.82' />
+        <set value='17372.76' />
+        <set value='35407.15' />
+        <set value='38105.68' />
+        <set value='45000.65' />
+        <set value='44835.76' />
+        <set value='18722.18' />
+        <set value='77557.31' />
+        <set value='92633.68' />
+      </dataset>
+    </chart>

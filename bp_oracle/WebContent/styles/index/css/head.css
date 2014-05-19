@@ -1,0 +1,28 @@
+@charset "gb2312";
+.mainbox {width:784px;margin:0 auto;clear:both;background:#fff;padding:0 8px;}
+/*--head--*/
+.ucheadbox {width:784px;margin:0 auto;clear:both;background:#fff;padding:1px 8px 0 8px;}
+.toptab1 {background:#d9d9d9;text-align:right;padding-right:10px;line-height:28px;}
+.toplogo {float:left;width:749px;height:68px;background:url(../images/topbg.jpg) no-repeat;font:bold 30px "黑体","宋体";color:#0a5086;padding:30px 0 0 35px;}
+.topnavul {float:left;width:772px;height:28px;border:1px solid #dbdbdb;background:url(../images/topnavbg.gif) repeat-x;margin-top:2px;padding-left:10px;}
+.topnavul li {float:left;padding:0 10px;font:normal 14px/28px "宋体";color:#510505;}
+.topnavul li a,.topnavul li a:visited {color:#510505;}
+.topnavul li a:hover {color:#cf0000;text-decoration:underline;}
+
+/* footer */
+.foot {width:784px;margin:0 auto;clear:both;padding:10px 8px 0 8px;background:#fff;}
+.footer {width:784px;background:url(../images/footerbg.gif) repeat-x top;padding:20px 0 30px 0;}
+.footer1 {margin:0 auto;clear:both;font:normal 12px/22px "宋体";text-align:center;background:#fff;}
+.footer1 span {font:normal 12px Arial, Helvetica, sans-serif;color:#333;}
+
+
+
+
+
+
+
+
+
+
+
+

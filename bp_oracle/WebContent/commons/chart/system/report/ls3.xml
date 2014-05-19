@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年第4季度全国典型零售企业分业态 商品销售总额 经营情况统计图表' subcaption="单位：万元" palette='4' decimals='0' enableSmartLabels='1' 
+	enableRotation='0' bgColor='99CCFF,FFFFFF' bgAlpha='40,100' bgRatio='0,100' bgAngle='360' 
+	numberPrefix='￥' showBorder='1' startingAngle='70' baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <set value='250' label='专卖店' />
+      <set value='170' label='百货店' />
+      <set value='230' label='专业店' />
+      <set value='450' label='超市（含大型超市、仓储会员店）' isSliced='1' />
+      <set value='220' label='购物中心' />
+      <set value='220' label='便利店' />
+    </chart>

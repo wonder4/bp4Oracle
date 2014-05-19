@@ -1,0 +1,43 @@
+1、web.xml里面demo配置是关于图形插件的，不需要的话可以去除，相对应代码可以留着也可以去除。
+	页面目录为 /WebContent/demo，
+	java代码目录为 \src\base\com\ebiz\bp_oracle\web\struts\demo\FusionchartsAction.java
+	web.xml代码为：
+		<init-param>
+			<param-name>config/demo</param-name>
+			<param-value>/WEB-INF/config/struts/strutsConfig-demo.xml</param-value>
+		</init-param>
+	还有一段：
+	<!-- fusioncharts图片导出 BEGIN -->
+		<servlet>
+			<servlet-name>FusionchartExporter</servlet-name>
+			<servlet-class>com.fusioncharts.exporter.servlet.FCExporter</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>FusionchartExporter</servlet-name>
+			<url-pattern>/FusionchartExporter.do</url-pattern>
+		</servlet-mapping>
+		<!-- fusioncharts图片导出 END -->
+2、后台系统设置中的关于推送信息的功能是无法使用的，如果不用的话可以将对应的jar包与js删除，jar包为pushlet.jar，js为/WebContent/commons/pushlet。
+	要用的话需要在web.xml里将注释去掉，代码如下：
+	<!-- Define the pushlet servlet BEGIN 
+	<servlet>
+		<servlet-name>pushlet</servlet-name>
+		<servlet-class>nl.justobjects.pushlet.servlet.Pushlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pushlet</servlet-name>
+		<url-pattern>/pushlet.srv</url-pattern>
+	</servlet-mapping> -->
+	<!-- Define the pushlet servlet END -->
+3、IP限制功能如果不用，可将web.xml过滤器去掉，代码如下：
+	<filter>
+		<filter-name>ipAuthenticateFilter</filter-name>
+		<filter-class>com.ebiz.bp_oracle.web.filter.IpAuthenticateFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ipAuthenticateFilter</filter-name>
+		<url-pattern>/manager/admin/*</url-pattern>
+	</filter-mapping>
+4、WebContent/commons/chart 这个目录可以删除，没用。
+5、监听器只配了一个，那就是ResourceListener，如果不需要操作数据库，则可以将里面的部分代码去除。

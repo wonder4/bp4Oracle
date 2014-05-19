@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国重点生产资料企业（单位）分项目指标 国有企业 经营情况统计图表' subcaption="单位：万元" palette='4' decimals='0' enableSmartLabels='1' enableRotation='0' bgColor='99CCFF,FFFFFF' bgAlpha='40,100' bgRatio='0,100' bgAngle='360' numberPrefix='￥' showBorder='1' baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <set value='250' label='代理销售' />
+      <set value='170' label='批发市场销售' />
+      <set value='230' label='连锁经营' />
+      <set value='450' label='加工配送' isSliced='1' />
+      <set value='220' label='电子商务销售额' />
+    </chart>

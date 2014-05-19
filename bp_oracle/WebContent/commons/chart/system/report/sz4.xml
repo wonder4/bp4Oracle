@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国重点生产资料流通企业（单位）分销售类型统计情况' subCaption='单位：万元' lineThickness='1' showValues='0' 
+	formatNumberScale='0' anchorRadius='2'   divLineAlpha='20' divLineColor='CC3300' divLineIsDashed='1' 
+	showAlternateHGridColor='1' alternateHGridAlpha='5' alternateHGridColor='CC3300' shadowAlpha='40' numberPrefix='￥' 
+	labelStep="1" numvdivlines='5' chartRightMargin="35" bgColor='FFFFFF,CC3300' bgAngle='270' bgAlpha='10,10' 
+    baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <categories >
+        <category label='国有企业' />
+        <category label='联营企业' />
+        <category label='私营企业' />
+        <category label='港澳台商投资企业' />
+        <category label='集体企业' />
+        <category label='有限责任公司' />
+        <category label='其他内资企业' />
+        <category label='外商投资企业' />
+        <category label='股份合作企业' />
+        <category label='股份有限公司' />
+        <category label='个体户' />
+      
+      </categories>
+
+
+      <dataset seriesName='代理销售' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1210' />
+        <set value='1054' />
+        <set value='802' />
+        <set value='1511' />
+       
+      </dataset>
+      <dataset seriesName='批发市场销售' color='F1683C' anchorBorderColor='F1683C' anchorBgColor='F1683C'>
+        <set value='2042' />
+        <set value='1327' />
+        <set value='1826' />
+        <set value='1699' />
+        <set value='1511' />
+        <set value='1904' />
+        <set value='1957' />
+        <set value='1296' />
+        <set value='3210' />
+        <set value='2994' />
+        <set value='3115' />
+      
+      </dataset>
+      <dataset seriesName='连锁经营' anchorBorderColor='2AD62A' anchorBgColor='2AD62A'>
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1904' />
+        <set value='1957' />
+        <set value='1296' />
+        <set value='3210' />
+        <set value='2994' />
+        <set value='3115' />
+        <set value='2844' />
+       
+      </dataset>
+      <dataset seriesName='加工配送' anchorBorderColor='DBDC25' anchorBgColor='DBDC25'>
+        <set value='541' />
+        <set value='781' />
+        <set value='850' />
+        <set value='1010' />
+        <set value='1116' />
+        <set value='1234' />
+        <set value='1210' />
+        <set value='1054' />
+        <set value='802' />
+        <set value='920' />
+        <set value='754' />
+       
+      </dataset>
+      <dataset seriesName='电子商务销售额' anchorBorderColor='DBDC25' anchorBgColor='DBDC25'>
+        <set value='641' />
+        <set value='881' />
+        <set value='950' />
+        <set value='1110' />
+        <set value='1216' />
+        <set value='1334' />
+        <set value='1410' />
+        <set value='1554' />
+        <set value='862' />
+        <set value='970' />
+        <set value='784' />
+      
+      </dataset>
+      <styles>
+        <definition>
+          <style name='CaptionFont' type='font' size='12'/>
+          <style name='SUBCAPTIONFont' type='font' size='12'/>
+        </definition>
+        <application>
+          <apply toObject='CAPTION' styles='CaptionFont' />
+          <apply toObject='SUBCAPTION' styles='SUBCAPTIONFont' />
+        </application>
+      </styles>
+    </chart>

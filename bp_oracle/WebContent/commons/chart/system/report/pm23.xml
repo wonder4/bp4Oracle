@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年餐饮业分省营业收入排名'  xAxisName='行业类型' subcaption='单位：百万元' yAxisName='营业收入' 
+	 baseFontColor='666666' showValues='0' decimals='0' formatNumberScale='0' baseFont='宋体' BaseFontSize ='12'>
+      <set value='810' label='北京' />
+      <set value='720' label='天津'  />
+	  <set value='600' label='河北' />
+      <set value='550' label='山西' />
+      <set value='500' label='山西' />
+      <set value='450' label='内蒙' />
+	  <set value='400' label='辽宁' />
+	  <set value='380' label='吉林' />
+	  <set value='350' label='黑龙江' />
+	  <set value='340' label='上海' />
+      <set value='320' label='江苏' />
+      <set value='300' label='浙江' />
+	  <set value='290' label='安徽' />
+	  <set value='280' label='福建' />
+	  <set value='260' label='重庆' /> 
+	  <set value='240' label='江西' />
+	  <set value='220' label='山东' />
+	  <set value='200' label='河南' />
+	  <set value='180' label='湖北' />
+	  <set value='160' label='湖南' />
+	  <set value='140' label='广东' />
+	  <set value='130' label='广西' />
+	  <set value='120' label='海南' />
+	  <set value='110' label='四川' /> 
+	  <set value='100' label='贵州' />
+	  <set value='100' label='云南' />  
+	  <set value='100' label='西藏' />
+	  <set value='100' label='陕西' />
+	  <set value='90' label='甘肃' />
+	  <set value='90' label='宁夏' />
+	  <set value='90' label='青海' />
+	  <set value='80' label='新疆' />
+    </chart>

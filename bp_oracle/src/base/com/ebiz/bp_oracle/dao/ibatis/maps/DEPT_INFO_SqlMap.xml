@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="DEPT_INFO">
+
+	<typeAlias alias="deptInfo" type="com.ebiz.bp_oracle.domain.DeptInfo" />
+
+	<cacheModel id="oneDayCache" type="OSCACHE">
+		<flushInterval hours="24" />
+		<flushOnExecute statement="insertDeptInfo" />
+		<flushOnExecute statement="updateDeptInfo" />
+		<flushOnExecute statement="deleteDeptInfo" />
+	</cacheModel>
+
+	<resultMap id="deptInfoResultForList" class="deptInfo">
+		<result column="ID" property="id" jdbcType="DECIMAL" />
+		<result column="DEPT_ID" property="dept_id" jdbcType="DECIMAL" />
+		<result column="PAR_ID" property="par_id" jdbcType="DECIMAL" />
+		<result column="DEPT_NAME" property="dept_name" jdbcType="VARCHAR" />
+		<result column="DEPT_DESC" property="dept_desc" jdbcType="VARCHAR" />
+		<result column="DEPT_URL" property="dept_url" jdbcType="VARCHAR" />
+		<result column="DEPT_MASTER" property="dept_master" jdbcType="VARCHAR" />
+		<result column="DEPT_TEL" property="dept_tel" jdbcType="VARCHAR" />
+		<result column="DEPT_FAX" property="dept_fax" jdbcType="VARCHAR" />
+		<result column="DEPT_ADDR" property="dept_addr" jdbcType="VARCHAR" />
+		<result column="IS_VIRTUAL" property="is_virtual" jdbcType="DECIMAL" />
+		<result column="ORDER_VALUE" property="order_value" jdbcType="DECIMAL" />
+		<result column="IS_LOCK" property="is_lock" jdbcType="DECIMAL" />
+		<result column="IS_DEL" property="is_del" jdbcType="DECIMAL" />
+	</resultMap>
+
+	<resultMap id="deptInfoResult" class="deptInfo" extends="deptInfoResultForList">
+	</resultMap>
+
+	<sql id="sf-deptInfo">
+		<isNotEmpty prepend=" and " property="id">a.ID = #id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_id">a.DEPT_ID = #dept_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="par_id">a.PAR_ID = #par_id:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_name">a.DEPT_NAME = #dept_name:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_desc">a.DEPT_DESC = #dept_desc:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_url">a.DEPT_URL = #dept_url:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_master">a.DEPT_MASTER = #dept_master:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_tel">a.DEPT_TEL = #dept_tel:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_fax">a.DEPT_FAX = #dept_fax:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="dept_addr">a.DEPT_ADDR = #dept_addr:VARCHAR#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_virtual">a.IS_VIRTUAL = #is_virtual:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="order_value">a.ORDER_VALUE = #order_value:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_lock">a.IS_LOCK = #is_lock:DECIMAL#</isNotEmpty>
+		<isNotEmpty prepend=" and " property="is_del">a.IS_DEL = #is_del:DECIMAL#</isNotEmpty>
+	</sql>
+
+	<select id="selectDeptInfo" resultMap="deptInfoResult" parameterClass="deptInfo" cacheModel="oneDayCache">
+		select * from DEPT_INFO a where 1 = 1
+		<include refid="sf-deptInfo" />
+	</select>
+
+	<select id="selectDeptInfoList" resultMap="deptInfoResultForList" parameterClass="deptInfo" cacheModel="oneDayCache">
+		<isNotEmpty property="row.count">
+			<![CDATA[ select * from ( ]]>
+		</isNotEmpty>
+		select * from DEPT_INFO a where 1 = 1
+		<include refid="sf-deptInfo" />
+		 order by ORDER_VALUE desc, ID asc
+		<isNotEmpty property="row.count">
+			<![CDATA[ ) where rownum <= #row.count# ]]>
+		</isNotEmpty>
+	</select>
+
+	<select id="selectDeptInfoCount" resultClass="long" parameterClass="deptInfo" cacheModel="oneDayCache">
+		select count(*) from DEPT_INFO a where 1 = 1
+		<include refid="sf-deptInfo" />
+	</select>
+
+	<select id="selectDeptInfoPaginatedList" resultMap="deptInfoResult" parameterClass="deptInfo" cacheModel="oneDayCache">
+		<![CDATA[ select * from ( select t_.*, rownum rn_ from ( ]]>
+		select * from DEPT_INFO a where 1 = 1
+		<include refid="sf-deptInfo" />
+		order by DEPT_ID, ID asc
+		<![CDATA[ ) t_ where rownum <= (#row.first# + #row.count#)) where rn_ >= (#row.first# + 1) ]]>
+	</select>
+
+	<select id="selectDeptInfoWithLevelNumber" resultClass="long" parameterClass="deptInfo" cacheModel="oneDayCache">
+		select DECODE(to_number(substr(max(dept_id), #map.start_index#, #map.setp#)), '', 0, to_number(substr(max(dept_id), #map.start_index#, #map.setp#))) + 1 as LEVEL_NUBMER from DEPT_INFO a where 1 = 1
+		<include refid="sf-deptInfo" />
+	</select>
+
+	<select id="selectDeptInfoParentList" resultMap="deptInfoResult" parameterClass="deptInfo" cacheModel="oneDayCache">
+		select * from DEPT_INFO where is_del = 0 start with dept_id =#dept_id:VARCHAR# connect by prior PAR_ID =
+		dept_id
+		order by level desc, dept_id, ORDER_VALUE
+	</select>
+	
+	<insert id="insertDeptInfo" parameterClass="deptInfo">
+		<selectKey resultClass="long" keyProperty="id">select SEQ_DEPT_INFO.nextval as id from dual</selectKey>
+		<![CDATA[insert into DEPT_INFO (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">ID</isNotNull>	
+			<isNotNull prepend="," property="dept_id">DEPT_ID</isNotNull>	
+			<isNotNull prepend="," property="par_id">PAR_ID</isNotNull>	
+			<isNotNull prepend="," property="dept_name">DEPT_NAME</isNotNull>	
+			<isNotNull prepend="," property="dept_desc">DEPT_DESC</isNotNull>	
+			<isNotNull prepend="," property="dept_url">DEPT_URL</isNotNull>	
+			<isNotNull prepend="," property="dept_master">DEPT_MASTER</isNotNull>	
+			<isNotNull prepend="," property="dept_tel">DEPT_TEL</isNotNull>	
+			<isNotNull prepend="," property="dept_fax">DEPT_FAX</isNotNull>	
+			<isNotNull prepend="," property="dept_addr">DEPT_ADDR</isNotNull>	
+			<isNotNull prepend="," property="is_virtual">IS_VIRTUAL</isNotNull>	
+			<isNotNull prepend="," property="order_value">ORDER_VALUE</isNotNull>	
+			<isNotNull prepend="," property="is_lock">IS_LOCK</isNotNull>	
+			<isNotNull prepend="," property="is_del">IS_DEL</isNotNull>	
+		</dynamic>
+		<![CDATA[) values (]]>
+		<dynamic prepend=" ">
+			<isNotNull prepend="," property="id">#id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_id">#dept_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="par_id">#par_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_name">#dept_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_desc">#dept_desc:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_url">#dept_url:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_master">#dept_master:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_tel">#dept_tel:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_fax">#dept_fax:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_addr">#dept_addr:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="is_virtual">#is_virtual:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="order_value">#order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_lock">#is_lock:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_del">#is_del:DECIMAL#</isNotNull>
+		</dynamic>
+		<![CDATA[)]]>
+	</insert>
+
+	<update id="updateDeptInfo" parameterClass="deptInfo">
+		update DEPT_INFO
+		<dynamic prepend="set">
+			<isNotNull prepend="," property="id">ID = #id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_id">DEPT_ID = #dept_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="par_id">PAR_ID = #par_id:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="dept_name">DEPT_NAME = #dept_name:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_desc">DEPT_DESC = #dept_desc:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_url">DEPT_URL = #dept_url:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_master">DEPT_MASTER = #dept_master:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_tel">DEPT_TEL = #dept_tel:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_fax">DEPT_FAX = #dept_fax:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="dept_addr">DEPT_ADDR = #dept_addr:VARCHAR#</isNotNull>
+			<isNotNull prepend="," property="is_virtual">IS_VIRTUAL = #is_virtual:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="order_value">ORDER_VALUE = #order_value:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_lock">IS_LOCK = #is_lock:DECIMAL#</isNotNull>
+			<isNotNull prepend="," property="is_del">IS_DEL = #is_del:DECIMAL#</isNotNull>
+		</dynamic>
+		where 1 = 1
+		<isNotEmpty prepend=" and " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" and " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</update>
+
+	<delete id="deleteDeptInfo" parameterClass="deptInfo">
+		delete from DEPT_INFO where 1 = 1
+		<isNotEmpty prepend=" and " property="id">ID = #id#</isNotEmpty>
+		<isEmpty prepend=" and " property="id">
+			<isNotEmpty prepend=" " property="map.pks">
+				ID in
+				<iterate close=")" open="(" conjunction="," property="map.pks">#map.pks[]#</iterate>
+			</isNotEmpty>
+		</isEmpty>
+	</delete>
+
+</sqlMap>

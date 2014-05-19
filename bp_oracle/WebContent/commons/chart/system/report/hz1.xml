@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国典型会展服务业分经营类别 举办展会数量 统计年报表' subcaption="单位：个" palette='4' decimals='0' enableSmartLabels='1' 
+	enableRotation='0' bgColor='99CCFF,FFFFFF' bgAlpha='40,100' bgRatio='0,100' bgAngle='360' 
+	 showBorder='1' startingAngle='70' baseFontColor='666666' baseFont='宋体' BaseFontSize ='12'>
+      <set value='250' label='国有企业' />
+      <set value='170' label='联营企业' />
+      <set value='230' label='私营企业' />
+      <set value='650' label='港澳台商投资企业' isSliced='1' />
+      <set value='220' label='集体企业' />
+      <set value='220' label='有限责任公司' />
+      <set value='220' label='其他内资企业' />
+      <set value='220' label='外商投资企业' />
+      <set value='220' label='股份合作企业' />
+      <set value='220' label='股份有限公司' />
+    
+    </chart>

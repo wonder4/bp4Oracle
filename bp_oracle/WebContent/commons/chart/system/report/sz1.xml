@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart caption='2008年全国重点生产资料流通企业（单位）分企业类型 商品销售总额 统计情况' subcaption="单位：万元" xAxisName='企业类型' yAxisName='商品销售总额' 
+	numberPrefix='￥' baseFontColor='666666' showValues='0' decimals='0' formatNumberScale='0' baseFont='宋体' BaseFontSize ='12'>
+      <set value='2500' label='国有企业' />
+      <set value='1700' label='联营企业' />
+      <set value='2300' label='私营企业' />
+      <set value='6500' label='港澳台商投资企业' />
+      <set value='2200' label='集体企业' />
+      <set value='3200' label='有限责任公司' />
+      <set value='4200' label='其他内资企业' />
+      <set value='5200' label='外商投资企业' />
+      <set value='6200' label='股份合作企业' />
+      <set value='7200' label='股份有限公司' />
+      <set value='8200' label='个体户' />
+    
+    </chart>
+
+
+
+
+

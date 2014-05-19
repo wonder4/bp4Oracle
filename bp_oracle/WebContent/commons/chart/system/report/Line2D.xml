@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="gb2312"?>
+    <chart  caption='2008-2010年全国重点生产资料流通企业（单位）分企业类型 商品销售总额 统计情况' subcaption="单位：万元" xAxisName='Month' yAxisName='Sales' yAxisMinValue='15000'  
+numberPrefix='$' showValues='0' alternateHGridColor='FCB541' alternateHGridAlpha='20' divLineColor='FCB541' 
+divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='FCB541' baseFont='宋体' BaseFontSize ='12'>
+      <set value='250' label='国有企业' />
+      <set value='170' label='集体联营' />
+      <set value='230' label='其他有限责任公司' />
+      <set value='650' label='港澳台商投资企业' />
+      <set value='220' label='集体企业' />
+      <set value='220' label='国有与集体联营' />
+      <set value='220' label='股份有限公司' />
+      <set value='220' label='外商投资企业' />
+      <set value='220' label='股份合作' />
+      <set value='220' label='其他联营' />
+      <set value='220' label='私营企业' />
+      <set value='220' label='国有联营' />
+      <set value='220' label='国有独资公司' />
+      <set value='220' label='其他内资企业' />
+      <styles>
+        <definition>
+          <style name='Anim1' type='animation' param='_xscale' start='0' duration='1' />
+          <style name='Anim2' type='animation' param='_alpha' start='0' duration='0.6' />
+          <style name='DataShadow' type='Shadow' alpha='40'/>
+        </definition>
+        <application>
+          <apply toObject='DIVLINES' styles='Anim1' />
+          <apply toObject='HGRID' styles='Anim2' />
+          <apply toObject='DATALABELS' styles='DataShadow,Anim2' />
+        </application>
+      </styles>
+    </chart>
