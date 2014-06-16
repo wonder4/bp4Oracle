@@ -59,4 +59,10 @@ public interface Facade extends BaseFacade {
 	SysSettingService getSysSettingService();
 
 	UserInfoService getUserInfoService();
+
+	MailAttachmentService getMailAttachmentService();
+
+	MailMainService getMailMainService();
+
+	MailPeopService getMailPeopService();
 }

@@ -18,6 +18,9 @@ import com.ebiz.bp_oracle.service.Facade;
 import com.ebiz.bp_oracle.service.HelpContentService;
 import com.ebiz.bp_oracle.service.HelpInfoService;
 import com.ebiz.bp_oracle.service.HelpModuleService;
+import com.ebiz.bp_oracle.service.MailAttachmentService;
+import com.ebiz.bp_oracle.service.MailMainService;
+import com.ebiz.bp_oracle.service.MailPeopService;
 import com.ebiz.bp_oracle.service.ModPopedomService;
 import com.ebiz.bp_oracle.service.NewsAttachmentService;
 import com.ebiz.bp_oracle.service.NewsContentService;
@@ -121,6 +124,15 @@ public class FacadeImpl extends BaseFacadeImpl implements Facade {
 
 	@Resource
 	UserInfoService userInfoService;
+
+	@Resource
+	MailAttachmentService mailAttachmentService;
+
+	@Resource
+	MailMainService mailMainService;
+
+	@Resource
+	MailPeopService mailPeopService;
 
 	public BaseAttributeService getBaseAttributeService() {
 		return baseAttributeService;
@@ -235,4 +247,15 @@ public class FacadeImpl extends BaseFacadeImpl implements Facade {
 		return userInfoService;
 	}
 
+	public MailAttachmentService getMailAttachmentService() {
+		return mailAttachmentService;
+	}
+
+	public MailMainService getMailMainService() {
+		return mailMainService;
+	}
+
+	public MailPeopService getMailPeopService() {
+		return mailPeopService;
+	}
 }

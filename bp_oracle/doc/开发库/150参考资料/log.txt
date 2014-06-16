@@ -1,4 +1,9 @@
-203.12
+2014.6.16
+	1、增加站内信模块
+	2、对测试数据进行调整
+
+
+2013.12
 	1、删除news_info_custom_field、news_info_custom_fields_son、news_info_custom_fields三张表以及对应的XML、后台代码、前台页面及各模块中嵌入的代码；
 	
 

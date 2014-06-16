@@ -47,4 +47,8 @@
 	<!-- 投诉咨询add 2013-01-31  -->
     <sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/QA_INFO_SqlMap.xml" />
     
+    <!-- 站内信add 2014-06-12  -->
+    <sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/MAIL_ATTACHMENT_SqlMap.xml" />
+    <sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/MAIL_MAIN_SqlMap.xml" />
+    <sqlMap resource="com/ebiz/bp_oracle/dao/ibatis/maps/MAIL_PEOP_SqlMap.xml" />
 </sqlMapConfig>
