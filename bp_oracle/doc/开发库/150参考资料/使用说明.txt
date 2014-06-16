@@ -1,6 +1,5 @@
-这是一个oracle版本的后台管理系统，里面已经包含了用户角色，后台权限和新闻管理的管理
-@version20120720：增加产品 类别 属性管理
-@version20120906：增加部门 帮助中心管理
+这是一个oracle版本的后台管理系统，里面已经包含了用户角色，后台权限和新闻的管理
+
 使用方法：
 1、 替换：“CMS系统Oracle版本”为你的项目名称
 2、在navigator 模式下，修改bp_oracle目录为你的项目名称，java代码报错，进行如下处理：
@@ -10,21 +9,21 @@
 	
 3、新建oracle数据库，将“bp_oracle.dmp”导入基础数据，见备注
 4、启动服务器：“http://localhost:8080/bp_oracle”，即可
-5、外网访问地址：http://220.178.14.19:8085
 
-备注：
-1、新建新的表空，新建新的用户，给用户分配权限，参考：http://ethanwooblog.iteye.com/blog/1397429
--- 新建表空间  
-create tablespace newProject logging datafile '/u02/oradata/devdb/newProject.dbf' size 100m autoextend on next 50m maxsize 200m extent management local;   
--- 新建用户  
-create user newProject identified by newProject default tablespace newProject;   
--- 用户授权  
-grant connect,resource to newProject;   
--- 用户可以 访问dump_dir 方便进行导入和导出操作  
-grant read,write on directory dump_dir to newProject;  
 
-grant create job to hbcj;
+数据库操作备注：
+-- 建表空间与用户
+create tablespace bp_oracle logging datafile '/u02/oradata/devdb/bp_oracle.DBF' size 100m autoextend on next 50m maxsize 200m extent management local; 
+create user bp_oracle  identified by bp_oracle  default tablespace bp_oracle; 
+-- 授权
+grant connect,resource to bp_oracle ; --基础权限
+grant create view to bp_oracle ;    --导入视图权限
+grant read,write on directory dump_dir to bp_oracle; --数据通道授权
+grant exp_full_database to bp_oracle; --导出授权
+grant imp_full_database to bp_oracle; --导入授权
 
-2、将基础的数据bp_oracle20120216.dmp，导入到你的新的项目的表空间中，具体操作（正常导入不行，需要用表空间映射导入）：
-    impdp NewProject/NewProject directory=dump_dir dumpfile=bp_oracle20120906.dmp remap_schema=bp_oracle:NewProject remap_tablespace=bp_oracle:NewProject
-3、将数据库设计目录下的2.psd和2_1.psd用cs修改成你的项目名称，另存为项目图片，放到项目commons\error-pages\images目录
+-- 导出数据，Oracle Database 11g Enterprise Edition Release 11.2.0.2.0 - 64bit Production
+expdp bp_oracle2/bp_oracle2@192.168.3.249/devdb DIRECTORY=dump_dir DUMPFILE=bp_oracle2_20140616.dmp
+
+-- 导入数据，如果用户、表空间不一样，需要映射导入
+impdp NewProject/NewProject@192.168.3.249/devdb directory=dump_dir dumpfile=bp_oracle2_20140616.dmp remap_schema=bp_oracle:NewProject remap_tablespace=bp_oracle:NewProject
